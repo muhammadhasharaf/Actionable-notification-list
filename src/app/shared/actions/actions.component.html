@@ -1,0 +1,14 @@
+<div *ngFor="let act of action">
+<ng-template [ngIf]="act?.control === 'file'">
+    <input type="file">
+</ng-template>
+
+<ng-template [ngIf]="act?.control === 'button'">
+    <div class="row">
+        <div class="col-lg-3 action">
+            <button type="button" class="btn btn-primary action_btn">{{act?.config?.label}}</button>
+        </div>
+    </div>
+   
+</ng-template>
+</div>

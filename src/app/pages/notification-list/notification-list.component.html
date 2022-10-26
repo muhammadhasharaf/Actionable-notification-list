@@ -1,0 +1,61 @@
+<!-- <div>
+    <ul class="main_list">
+        <li class="main_list__item" *ngFor="let not of notificationData; let i=index" (click)="assignIndex(i)">{{not.message}}
+            <ng-template [ngIf]="openIndex == i">
+                <p>{{not.description}}</p>
+                <h5 *ngIf="not?.from?.name">user: {{not?.from?.name}}</h5>
+                <ng-container *ngIf="not?.attachments">
+                    <a
+                      *ngFor="let attachment of not.attachments"
+                      [href]="attachment.url"
+                      >{{ attachment.name }}</a
+                    >
+                  </ng-container>
+                 <ng-container *ngIf="not?.actions">
+                <app-actions *ngFor="let action of not.actions"
+                [action]="action"></app-actions>
+            </ng-container>
+            </ng-template>
+        </li>
+    </ul>
+</div> -->
+
+  <div class="title">
+    <h3 class="title__h3">Notifications <i class="fa fa-bell text-muted"></i></h3>
+  </div>
+
+
+	<section class="section-30">
+		<div class="container">
+			
+
+			<div class="notification-ui_dd-content">
+				<div class="notification-list notification-list--unread" *ngFor="let not of notificationData; let i=index" (click)="assignIndex(i)">
+                    {{not.message}}
+                    <ng-template [ngIf]="openIndex == i">
+                        <p *ngIf="not?.description" class="desc">{{not.description}}</p>
+					<div *ngIf="not?.attachments">
+						<div *ngFor="let attachment of not.attachments">
+                            <a  [href]="attachment.url">{{ attachment.name }}</a>
+                        </div>
+						
+					</div>
+
+                    <div *ngIf="not.actions">
+                        <app-actions [action]="not.actions"></app-actions>
+                    </div>
+                    </ng-template>
+					
+				</div>
+			
+			
+			
+		
+			</div>
+
+		
+
+		</div>
+	</section>
+
+
